@@ -1,3 +1,6 @@
+# https://adventofcode.com/2022/day/3
+
+
 import math
 
 def partOne(priorities):
