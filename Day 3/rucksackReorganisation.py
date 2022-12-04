@@ -14,11 +14,11 @@ def partOne(priorities):
             for ch in compartment1:
                 if ch in compartment2:
                     if ch.islower():
-                        priorities.append(ord(ch) - 96)
+                        priorities.append(ord(ch) - 96)  # Convert Unicode value to priorty values
                         break
                     
                     else:
-                        priorities.append(ord(ch) - 38)
+                        priorities.append(ord(ch) - 38)  # Convert Unicode value to priorty values
                         break
 
     print(f'Total for Part 1: {sum(priorities)}')
