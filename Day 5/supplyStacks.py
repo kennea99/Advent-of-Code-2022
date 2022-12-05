@@ -19,7 +19,7 @@ def main():
 
     supplies = []
 
-    with open('input2.txt', 'r') as file:
+    with open('input.txt', 'r') as file:
         for line in file:
             if line != '\n':
                 l.append(line)
@@ -31,7 +31,6 @@ def main():
             for ch in newString:
                 row.append(ch)
             stack.append(row)
-
         stack.pop()
 
 
@@ -39,13 +38,53 @@ def main():
         for i in range(len(stack[n-1])):
             tmp = []
             for j in range(n-1, -1, -1):
-                print(stack[j][i])
                 if stack[j][i] == ' ':
                     continue
                 else:
                     tmp.append(stack[j][i])
             supplies.append(tmp)
-        print(supplies)
+        # print(supplies)
+
+# PART ONE (COMMENT PART TWO TO RUN)
+#     with open('input.txt', 'r') as file:
+#         for line in file:
+#             if 'move' not in line:
+#                 continue
+#             else:
+#                 move, frm, to = [int(s) for s in line.split() if s.isdigit()]
+
+#                 for i in range(move):
+#                     tmp = supplies[frm-1].pop()
+#                     supplies[to-1].append(tmp)
+
+# PART TWO (COMMENT PART ONE TO RUN)
+    with open('input.txt', 'r') as file:
+        for line in file:
+            if 'move' not in line:
+                continue
+            else:
+                move, frm, to = [int(s) for s in line.split() if s.isdigit()]
+
+                tmpList = []
+                for i in range(move):
+                    tmp = supplies[frm-1].pop()
+                    tmpList.append(tmp)
+
+
+                tmpList.reverse()
+                for i in range(len(tmpList)):
+                    supplies[to-1].append(tmpList[i])
+
+
+
+    final = ''
+    for i in range(len(supplies)):
+        final += supplies[i][-1]
+
+    print(final)
+
+
+    
 
 
 
